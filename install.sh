@@ -35,12 +35,27 @@ echo ""
 
 # 安装 Python 依赖
 echo "📦 安装 Python 依赖..."
-pip3 install -r requirements.txt
-if [ $? -ne 0 ]; then
-    echo "❌ Python 依赖安装失败"
-    exit 1
+echo ""
+echo "⚠️  注意: snscrape 已停止维护，将使用 ntscraper 作为替代"
+echo ""
+
+# 优先安装 ntscraper
+echo "正在安装 ntscraper..."
+if pip3 install ntscraper requests beautifulsoup4; then
+    echo "✅ ntscraper 安装成功"
+else
+    echo "⚠️  ntscraper 安装失败"
+    echo "尝试从 Git 安装 snscraper..."
+    
+    if pip3 install git+https://github.com/JustAnotherArchivist/snscraper.git 2>/dev/null; then
+        echo "✅ snscraper (Git 版本) 安装成功"
+    else
+        echo "⚠️  snscraper 也失败了"
+        echo "安装基础爬虫依赖..."
+        pip3 install requests beautifulsoup4
+        echo "⚠️  将使用基础爬虫（功能受限）"
+    fi
 fi
-echo "✅ Python 依赖安装成功"
 
 # 安装 Node.js 依赖
 echo ""

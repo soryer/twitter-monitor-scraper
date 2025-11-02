@@ -1,1 +1,12 @@
-snscrape>=3.5.0
+# 推荐使用 ntscraper（snscrape 已停止维护）
+# 选择以下一种安装方式：
+
+# 方案 1: ntscraper（推荐，最稳定）
+ntscraper
+
+# 方案 2: 备用爬虫（基础功能）
+requests
+beautifulsoup4
+
+# 方案 3: snscraper (已停止维护，但可以尝试 Git 版本)
+# 如果要使用，执行: pip3 install git+https://github.com/JustAnotherArchivist/snscraper.git

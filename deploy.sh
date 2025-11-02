@@ -172,7 +172,23 @@ install_dependencies() {
     
     # 安装 Python 依赖
     echo "📦 安装 Python 依赖..."
-    pip3 install -r requirements.txt
+    
+    # 优先尝试 ntscraper
+    echo "   尝试安装 ntscraper..."
+    if pip3 install ntscraper requests beautifulsoup4; then
+        echo "   ✅ ntscraper 安装成功"
+    else
+        echo "   ⚠️  ntscraper 安装失败，尝试备用方案..."
+        
+        # 备用方案：尝试从 Git 安装 snscraper
+        if pip3 install git+https://github.com/JustAnotherArchivist/snscraper.git 2>/dev/null; then
+            echo "   ✅ snscraper 安装成功"
+        else
+            echo "   ⚠️  snscraper 也失败了，仅安装基础爬虫..."
+            pip3 install requests beautifulsoup4
+            echo "   ⚠️  将使用基础爬虫功能（功能受限）"
+        fi
+    fi
     
     # 安装 Node.js 依赖
     echo "📦 安装 Node.js 依赖..."

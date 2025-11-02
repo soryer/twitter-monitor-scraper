@@ -39,12 +39,17 @@
 # 克隆项目
 cd twitter-monitor-scraper
 
-# 安装 Python 依赖
-pip3 install -r requirements.txt
+# 安装 Python 依赖（推荐使用 ntscraper）
+pip3 install ntscraper requests beautifulsoup4
+
+# 如果 ntscraper 不可用，尝试从 Git 安装 snscraper
+# pip3 install git+https://github.com/JustAnotherArchivist/snscraper.git
 
 # 安装 Node.js 依赖
 npm install
 ```
+
+> ⚠️ **注意：** snscrape 已停止维护，推荐使用 ntscraper。详见 [INSTALL_GUIDE.md](INSTALL_GUIDE.md)
 
 ### 2. 配置
 
