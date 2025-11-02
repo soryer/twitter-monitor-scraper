@@ -1,0 +1,25 @@
+{
+  "name": "twitter-monitor-scraper",
+  "version": "1.0.0",
+  "description": "Twitter monitoring tool using snscrape (no API token required)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node scraper.py test",
+    "check-deps": "node -e \"console.log('Node.js OK')\" && python3 -c \"import snscrape; print('Python OK')\""
+  },
+  "keywords": [
+    "twitter",
+    "monitor",
+    "scraper",
+    "telegram",
+    "snscrape",
+    "notification"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "node-telegram-bot-api": "^0.64.0"
+  }
+}

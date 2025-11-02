@@ -1,0 +1,10 @@
+node_modules/
+.env
+last_tweet_id.json
+logs/
+*.log
+.DS_Store
+__pycache__/
+*.pyc
+.vscode/
+.idea/
